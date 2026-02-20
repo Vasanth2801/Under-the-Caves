@@ -113,6 +113,12 @@ public class Enemy : MonoBehaviour
                 continue;
             }
 
+            Playerhealth ph = hit.GetComponent<Playerhealth>();
+            if(ph != null)
+            {
+                ph.TakeDamage(10);
+            }
+
             Debug.Log("Player Hit");
         }
     }

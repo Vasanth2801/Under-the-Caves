@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 9155865749972488172}
   - component: {fileID: 2460586436361022795}
   - component: {fileID: 4630829431543287006}
+  - component: {fileID: 9043949470202939571}
   m_Layer: 0
   m_Name: Enemy(Crab)
   m_TagString: Enemy
@@ -314,3 +315,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 1.3777753, y: 0}
   m_Radius: 6.413402
+--- !u!114 &9043949470202939571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371115420769957823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e63e4552cec9c41b902c045fbcf1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 30
+  currentHealth: 0
