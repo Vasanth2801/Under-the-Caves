@@ -5,6 +5,7 @@ public class OctopusEnemy : MonoBehaviour
     [Header("Enemy Settings")]
     [SerializeField] private float bulletForce = 10f;
     [SerializeField] private float shootingRange = 10f;
+    [SerializeField] private int facingDirection = 1;
 
     [Header("References")]
     [SerializeField] private Transform player;
@@ -30,6 +31,11 @@ public class OctopusEnemy : MonoBehaviour
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
+
+        if (player.position.x > transform.position.x && facingDirection == 1 || player.position.x < transform.position.x && facingDirection == -1)
+        {
+            Flip();
+        }
     }
 
     void Shoot()
@@ -37,6 +43,13 @@ public class OctopusEnemy : MonoBehaviour
         GameObject bullet = pooler.SpawnFromPools("EnemyBullet", firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(-firePoint.right * bulletForce, ForceMode2D.Impulse);
+    }
+
+    void Flip()
+    {
+       facingDirection *= -1;
+       transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+       firePoint.Rotate(0f, 180f, 0f);
     }
 
     void OnDrawGizmosSelected()

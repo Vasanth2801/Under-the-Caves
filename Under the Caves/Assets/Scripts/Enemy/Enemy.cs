@@ -40,8 +40,9 @@ public class Enemy : MonoBehaviour
         {
             isChasing = false;
             rb.linearVelocity = Vector2.zero;
+            animator.SetBool("isRunning", false);
 
-            if(!isAttacking)
+            if (!isAttacking)
             {
                 StartCoroutine(AttackCoroutine());
             }
@@ -65,6 +66,7 @@ public class Enemy : MonoBehaviour
 
     void Chase()
     {
+        animator.SetBool("isRunning", true);
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
     }
@@ -127,6 +129,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            animator.SetBool("isRunning", false);
             isChasing = false;
             rb.linearVelocity = Vector2.zero;
         }
