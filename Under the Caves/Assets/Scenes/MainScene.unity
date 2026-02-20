@@ -246,6 +246,7 @@ MonoBehaviour:
   jumpForce: 7.8
   facingDirection: 1
   rb: {fileID: 1839475}
+  animator: {fileID: 941493921}
   firePointTransform: {fileID: 661987716}
   movement: 0
   groundCheck: {fileID: 1805664106}

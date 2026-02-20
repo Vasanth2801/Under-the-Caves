@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform firePointTransform;
 
     [Header("Input Settings")]
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
         }
 
         Jump();
+
+        HandleAnimations();
     }
 
     void FixedUpdate()
@@ -41,13 +44,6 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
     }
 
-    void Flip()
-    {
-        facingDirection *= -1;
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-        firePointTransform.Rotate(0f, 180f, 0f);
-    }
-
     void Jump()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
@@ -56,5 +52,21 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    void HandleAnimations()
+    {
+        bool isMoving = Mathf.Abs(movement) > 0.01f && isGrounded;
+
+        animator.SetBool("isIdling", !isMoving && isGrounded);
+        animator.SetBool("isRunning", isMoving && isGrounded);
+        animator.SetBool("isJumping", rb.linearVelocity.y > 0);
+    }
+
+    void Flip()
+    {
+        facingDirection *= -1;
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        firePointTransform.Rotate(0f, 180f, 0f);
     }
 }
