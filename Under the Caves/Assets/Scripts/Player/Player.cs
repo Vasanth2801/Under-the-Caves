@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-
 public class Player : MonoBehaviour
 {
     [Header("Movement Settings")]
