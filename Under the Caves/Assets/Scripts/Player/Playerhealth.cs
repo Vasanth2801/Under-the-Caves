@@ -8,6 +8,9 @@ public class Playerhealth : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private Image healthBar;
 
+    [Header("Game Over Settings")]
+    [SerializeField] private GameObject gameOverPanel;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -29,6 +32,7 @@ public class Playerhealth : MonoBehaviour
 
     void Die()
     {
+        gameOverPanel.SetActive(true);
         Destroy(gameObject);
         Time.timeScale = 0f; 
         Debug.Log("Player has died!");

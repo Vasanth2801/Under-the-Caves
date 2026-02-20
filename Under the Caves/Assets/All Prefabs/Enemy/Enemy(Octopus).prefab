@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3051772349916222889}
   - component: {fileID: 4558602038718078484}
   - component: {fileID: 3179288772525650620}
+  - component: {fileID: 173891673717195435}
+  - component: {fileID: 5816156214826774891}
   m_Layer: 0
   m_Name: Enemy(Octopus)
   m_TagString: Enemy
@@ -100,6 +102,32 @@ MonoBehaviour:
   firePoint: {fileID: 5219255898726779000}
   fireRate: 1
   nextFireTime: 0
+--- !u!114 &173891673717195435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191165782918705896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0596e91ec7d19b24eaa88c781a231548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
+--- !u!114 &5816156214826774891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191165782918705896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e63e4552cec9c41b902c045fbcf1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 30
+  currentHealth: 0
 --- !u!1 &1828595883662874318
 GameObject:
   m_ObjectHideFlags: 0

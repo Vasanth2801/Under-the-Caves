@@ -286,6 +286,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 2093304951}
+  gameOverPanel: {fileID: 254234505}
 --- !u!1 &21176311
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,10 +6764,10 @@ MonoBehaviour:
   pools:
   - objectTag: Bullet
     objectPrefab: {fileID: 7450253364541990698, guid: b6c603ff64b8cfa4da9b32f92dad5876, type: 3}
-    poolSize: 20
+    poolSize: 50
   - objectTag: EnemyBullet
     objectPrefab: {fileID: 7450253364541990698, guid: 9a4d63f5fffe680489f1fa284f692044, type: 3}
-    poolSize: 20
+    poolSize: 50
 --- !u!1 &484564276
 GameObject:
   m_ObjectHideFlags: 0
