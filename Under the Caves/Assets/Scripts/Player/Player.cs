@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform firePointTransform;
 
     [Header("Input Settings")]
     [SerializeField] private float movement;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     {
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        firePointTransform.Rotate(0f, 180f, 0f);
     }
 
     void Jump()

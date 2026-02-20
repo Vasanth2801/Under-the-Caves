@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1839474}
   - component: {fileID: 1839475}
   - component: {fileID: 1839476}
+  - component: {fileID: 1839477}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -153,6 +154,7 @@ Transform:
   m_Children:
   - {fileID: 941493919}
   - {fileID: 1805664106}
+  - {fileID: 661987716}
   m_Father: {fileID: 2072969799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1839474
@@ -189,7 +191,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.027700663, y: -0.3324101}
+  m_Offset: {x: 0.0588212, y: -0.38185108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -199,7 +201,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6121888, y: 2.2188368}
+  m_Size: {x: 0.78523254, y: 2.1199548}
   m_EdgeRadius: 0
 --- !u!50 &1839475
 Rigidbody2D:
@@ -244,6 +246,7 @@ MonoBehaviour:
   jumpForce: 7.8
   facingDirection: 1
   rb: {fileID: 1839475}
+  firePointTransform: {fileID: 661987716}
   movement: 0
   groundCheck: {fileID: 1805664106}
   checkRadius: 1.3
@@ -251,6 +254,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
+--- !u!114 &1839477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05487ddcdef738740b2e2ed5823c92eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooting
+  bulletSpeed: 20
+  firePoint: {fileID: 661987716}
+  pooler: {fileID: 367863778}
 --- !u!1 &21176311
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +603,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1285659212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &661987715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 661987716}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &661987716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661987715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.21, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1839473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &912707358
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 941493919}
   - component: {fileID: 941493920}
+  - component: {fileID: 941493921}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -801,7 +851,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2c08c932c2054a0da13bc4dd9db298d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a5c2f3ca4ae14e7e91149316db1e054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -812,6 +862,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &941493921
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941493918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3154e1a5758ef94995fa9bbb8818ec0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1141041701
 GameObject:
   m_ObjectHideFlags: 0
